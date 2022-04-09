@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <title>Cihuy</title>
     <script src="https://use.fontawesome.com/d9520d9238.js"></script>    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>    
     <link rel="icon" href="assets/earth.png" type="image/x-icon"></head>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>    
 <body>
@@ -18,9 +19,10 @@
             <input type="checkbox" id="checkbox_toggle" />
             <label for="checkbox_toggle" class="hamburger">&#9776;</label>
             <div class="menu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Project</a></li>
-                <li class="services">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>                
+                <!-- <li class="services">
                     <a href="#">Category</a>
                     <ul class="dropdown">
                         <li><a href="#">dropdown1</a></li>
@@ -28,11 +30,11 @@
                         <li><a href="#">dropdown3</a></li>
                         <li><a href="#">dropdown4</a></li>
                     </ul>
-                </li>
+                </li> -->
             </div>
         </ul>
     </nav>
-    <div class="containers" style="background-color: #239bd8;">
+    <div class="containers" style="background-color: #239bd8;" id="home">
         <div class="" style="flex-direction: row;margin: 4% auto;width: 60%;padding-top: 3rem;">
             <img src="assets/20sp.jpg" style="float: left;width: 16.2rem;padding-right: 1rem;border-radius: 20%;" alt=""></li>
             <div class="text">
@@ -46,7 +48,7 @@
     <div class="containers">
         <div class="rows">
             <div class="col-12">                
-            <h1>Education</h1><hr>
+                <h1 id="education">Education</h1><hr>
                 <div class="rows">
                     <div class="col-4">
                         <div class="cards">
@@ -88,7 +90,7 @@
                         </div>                        
                     </div>                                        
                 </div>
-                <h1 style="margin-top: 2rem;">Experience</h1><hr>
+                <h1 style="margin-top: 2rem;"  id="experience">Experience</h1><hr>
                 <div class="rows">
                     <div class="swiper mySwiper">
                         <div class="swiper-wrapper">
@@ -167,6 +169,21 @@
             clickable: true,
           },
         });
-      </script>    
+    </script>    
+    <script>
+        $(document).ready(function(){
+        $("a").on('click', function(event) {
+            if (this.hash !== "") {
+            event.preventDefault();
+            var hash = this.hash;
+            $('html, body').animate({
+                scrollTop: $(hash).offset().top
+            }, 800, function(){
+                window.location.hash = hash;
+            });
+            }
+        });
+        });
+    </script>      
 </body>
 </html>
