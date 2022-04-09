@@ -11,9 +11,12 @@ body {
 
 a {
   text-decoration: none;
-  color: white;
+  color: #239bd8;
 }
-
+a:hover {
+  text-decoration: none;
+  color: #48b4e5;
+}
 li {
   list-style: none;
 }
